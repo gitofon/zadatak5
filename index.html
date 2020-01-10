@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+
+<ul>
+    <li class="dropdown">
+        <a href="#">Meni &#9662;</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Prvi</a></li>
+            <li><a href="#">Drugi</a></li>
+            <li><a href="#">Treci</a></li>
+            <li><a href="#">Cetvrti</a></li>
+            <li><a href="#">Peti</a></li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+$(document).ready(function(){
+        $(".dropdown").click(function(){
+            $(this).find(".dropdown-menu").slideToggle("fast");
+        });
+    });
+    $(document).on("click", function(event){
+        var $trigger = $(".dropdown");
+        if($trigger !== event.target && !$trigger.has(event.target).length){
+            $(".dropdown-menu").slideUp("fast");
+        }            
+    });
+</script>
+<style>
+    body {
+        background-color: grey;
+    }
+    ul{
+           padding: 0;
+           list-style: none;
+           background: red;
+       }
+       ul li{
+           display: inline-block;
+           position: relative;
+           line-height: 21px;
+           text-align: left;
+       }
+       ul li a{
+           display: block;
+           padding: 8px 25px;
+           color: rgb(14, 9, 9);
+           text-decoration: none;
+       }
+       ul li a:hover{
+           color: rgb(255, 255, 255);
+           background: rgb(99, 43, 43);
+       }
+       ul li ul.dropdown-menu{
+           min-width: 100%; 
+           background: rgb(82, 5, 5);
+           display: none;
+           position: absolute;
+           z-index: 999;
+           left: 0;
+       }
+       ul li ul.dropdown-menu li{
+           display: block;
+       }
+   </style>
+   </header>
+</body>
+</html> 
